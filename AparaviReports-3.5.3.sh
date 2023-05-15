@@ -113,6 +113,8 @@ fi
 logFile="$reportFolder/aparavi_reports_log.txt"
 exec > >(tee -a "$logFile") 2>&1
 
+# Decoding base64AuthInfo to retrieve aparaviuser
+aparaviuser=$(echo "$base64AuthInfo" | base64 -d | cut -d ':' -f 1)
 
 # Display Settings
 echo "Aparavi Reports v3.5.3"
