@@ -147,7 +147,7 @@ for report_id in $report_ids; do
     echo "$timestamp - Generating report $reportName"
     echo "$timestamp - $uri"
 
-    curl -s -H "Authorization: Basic $base64AuthInfo" -o "$outfile" "$uri"
+    wget --quiet --header="Authorization: Basic $base64AuthInfo" --output-document="$outfile" "$uri"
 done
 
 # Finish Up
